@@ -23,15 +23,12 @@ class RestaurantsTableVC: UITableViewController {
         return rest.count
     }
 
-
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         let restaur = rest[indexPath.row]
         
-        cell.textLabel?.text = restaur.name
-        cell.detailTextLabel?.text = restaur.address
-        cell.imageView?.image = restaur.image
-
+        CellManager.configure(cell: cell, with: restaur)
+        
         return cell
     }
     
@@ -71,14 +68,20 @@ class RestaurantsTableVC: UITableViewController {
     }
     */
 
-    /*
+
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        // вытягиваем индекс нажатой ячейки
+        guard let indexPath = tableView.indexPathForSelectedRow,
+        // стучимся на новуб страницу и переходим
+        let detailVC = segue.destination as? DetailVC else {return}
+        // вытягиваем по индексу нужный ресторан ??????
+        detailVC.index  = indexPath.row
+        
+        
     }
-    */
+
 
 }
