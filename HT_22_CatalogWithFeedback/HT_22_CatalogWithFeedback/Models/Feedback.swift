@@ -5,7 +5,7 @@
 //  Created by Apple on 21.09.23.
 //
 
-import Foundation
+import UIKit
 
 struct Feedback {
     private let date = Date()
