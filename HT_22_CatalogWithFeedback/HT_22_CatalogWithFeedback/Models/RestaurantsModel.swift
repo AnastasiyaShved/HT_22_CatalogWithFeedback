@@ -13,7 +13,25 @@ struct RestaurantsModel {
     let address: String
     let image: UIImage?
     
-    var feedBacks: [Feedback] = []
+    var feedBacks: [Feedback] = [] {
+        didSet {
+            updateRating()
+        }
+    }
     
-    var rating = "⭐️⭐️⭐️"
+    var rating = ""
+    
+    ///добавили метод по расчету среднего рейтинга)
+    ///модификатор mutating необходим для изменения (модификации) самого себя (т.е RestaurantsModel после создания)
+    private mutating func updateRating() {
+        var count: Double = 0.0
+        self.rating = ""
+        for feed in feedBacks {
+            count += feed.mark
+        }
+        
+        for _ in 0 ..< Int(count)/feedBacks.count  {
+            self.rating.append("⭐️")
+        }
+    }
 }

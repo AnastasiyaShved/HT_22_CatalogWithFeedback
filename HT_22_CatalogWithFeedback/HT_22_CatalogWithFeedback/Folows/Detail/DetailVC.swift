@@ -10,10 +10,17 @@ import UIKit
 class DetailVC: UIViewController {
   
     // MARK: - property
-    var index: Int!
-
-    var rest: RestaurantsModel {
-        RestaurantData.shared.restaurant[index]
+    ///тут храниться RestaurantsModel для этого экрана, которую получаем из списка ресторанов при тапе на ячйку
+    var rest: RestaurantsModel? {
+        /// в методе didSet (сработает при записи в  rest значения) обновит UI (showReviewBtnb и ratingLbl)
+        /// а также добавит(обновит) RestaurantsModel в RestaurantData
+        didSet {
+            guard let rest = rest else { return }
+            RestaurantData.shared.appendRestaurantsModel(model: rest)
+            showReviewBtn?.setTitle("Посмотреть (\(rest.feedBacks.count)) отзывов", for: .normal)
+            showReviewBtn?.isEnabled = rest.feedBacks.count != 0
+            ratingLbl?.text = rest.rating
+        }
     }
     
     @IBOutlet weak var detailStachView: UIStackView!
@@ -34,19 +41,15 @@ class DetailVC: UIViewController {
         updateUI(with: size)
     }
     
-    
     //MARK: - actions -
-    
-    
-    
+    @IBAction func unwindToDetailVC(_ segue: UIStoryboardSegue) {}
     
      //MARK: - private funcs -
-    
     private func updateUI(with size: CGSize) {
-        
+        guard let rest = rest else { return }
         // забираем размер view в CGSize, для понимания положения экрана
         let isVertical = size.width < size.height
-        detailStachView.axis = isVertical ?.vertical : .horizontal
+        detailStachView.axis = isVertical ? .vertical : .horizontal
         
         //заполняем заголовок  tab bar =  restaurant's name
         title = rest.name
@@ -57,23 +60,12 @@ class DetailVC: UIViewController {
         
         showReviewBtn.setTitle("Посмотреть (\(rest.feedBacks.count)) отзывов", for: .normal)
         showReviewBtn.isEnabled = rest.feedBacks.count != 0
-        
     }
     
-    
-    
-    
-    
-    
-  
     // MARK: - Navigation
-
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
    
     }
-
-
 }
 
  //MARK: - private prorety -

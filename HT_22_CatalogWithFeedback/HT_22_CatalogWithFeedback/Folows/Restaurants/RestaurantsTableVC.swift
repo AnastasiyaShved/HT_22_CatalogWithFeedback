@@ -10,16 +10,17 @@ import UIKit
 class RestaurantsTableVC: UITableViewController {
 
     var rest: [RestaurantsModel] {
-        RestaurantData.shared.restaurant
+        RestaurantData.shared.getAllRestaurant()
     }
     
-
-    // MARK: - Table view data source
-
+    ///Добавили обновление таблицы при каждом показе экрана, что при возврате на этот экран у нас обновился рейтинг ресторана в зависимости он оценки в отзывах
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tableView.reloadData()
+    }
     
-   
+    // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         return rest.count
     }
 
@@ -71,17 +72,14 @@ class RestaurantsTableVC: UITableViewController {
 
     // MARK: - Navigation
 
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // вытягиваем индекс нажатой ячейки
         guard let indexPath = tableView.indexPathForSelectedRow,
-        // стучимся на новуб страницу и переходим
+        // стучимся на новую страницу
         let detailVC = segue.destination as? DetailVC else {return}
-        // вытягиваем по индексу нужный ресторан ??????
-        detailVC.index  = indexPath.row
-        
-        
+        // вытягиваем по индексу нужный ресторан
+        let restModel = RestaurantData.shared.getRestaurant(at: indexPath.row)
+        // передает модельку ресторана на следующий экран
+        detailVC.rest = restModel
     }
-
-
 }

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ReviewsVC: UIViewController {
+class ReviewsVC: UIViewController, UITextViewDelegate {
 
     //MARK: - property -
     
@@ -19,49 +19,43 @@ class ReviewsVC: UIViewController {
     
     @IBOutlet weak var save: UIButton!
     
-    
-    
-    
     //MARK: - life circle -
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        updateUI()
-
+        textView.delegate = self
     }
     
+    func textViewDidChange(_ textView: UITextView) {
+        guard let text = textView.text,
+              text.count >= 20  else {
+            errorLbl.isHidden = false
+            save.isEnabled = false
+            return
+        }
+        errorLbl.isHidden = true
+        save.isEnabled = true
+    }
+   
     //MARK: - actions -
-    
-    @IBAction func saveBtn(_ sender: UIButton) {
-        save.isEnabled = textView.text.count >= 20
-        
-        
-//        guard let tex = errorLbl.text,
-//              tex.count  >= 20  else {
-//            errorLbl.isHidden = true
-//            return
-//        }
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier {
+            case "unwindToDetailVC":
+            prepareFirstScreen(segue)
+        default:
+            break
+        }
     }
-    
-    
     
     //MARK: - private funcs -
-  
-//    private func updateUI() {
-//
-////        errorLbl.isHidden = false
-//        guard let text = textView.text,
-//                text.count >= 20
-//        else {
-//            errorLbl.isHidden = true
-//            return
-//        }
-//
-//
-//    }
-    
-    //MARK: - novigation -
-
+    private func prepareFirstScreen(_ segue: UIStoryboardSegue) {
+        guard let a = segue.destination as? DetailVC else { return }
+        ///создаем модель коментария (берем текст из textView и значение из segmentedControl (добавили +1 т.к значение текущего index в  segmentedControl начинается с 0 ))
+        let feed = Feedback(text: textView.text, mark: Double(segmentedControl.selectedSegmentIndex+1))
+        //добавили коментарий в массив отзывов в модельке ресторана
+        /// для нашего случая в DetailVC обновиться значение rest и у него сработает didSet
+        a.rest?.feedBacks.append(feed)
+    }
 }
 
 

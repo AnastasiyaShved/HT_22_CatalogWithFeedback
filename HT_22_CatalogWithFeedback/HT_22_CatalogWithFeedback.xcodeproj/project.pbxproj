@@ -53,6 +53,7 @@
 			isa = PBXGroup;
 			children = (
 				FA6322292ABC735600D209E4 /* HT_22_CatalogWithFeedback */,
+				FA63223E2ABC737E00D209E4 /* App */,
 				FA6322282ABC735600D209E4 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -68,13 +69,12 @@
 		FA6322292ABC735600D209E4 /* HT_22_CatalogWithFeedback */ = {
 			isa = PBXGroup;
 			children = (
-				FA6322552ABE394E00D209E4 /* Folows */,
 				FA6322432ABC740300D209E4 /* Models */,
+				FA6322552ABE394E00D209E4 /* Folows */,
 				FA6322412ABC73DF00D209E4 /* Views */,
-				FA6322332ABC735B00D209E4 /* Assets.xcassets */,
-				FA6322382ABC735B00D209E4 /* Info.plist */,
 				FA6322522ABE387E00D209E4 /* Services */,
-				FA63223E2ABC737E00D209E4 /* App */,
+				FA6322382ABC735B00D209E4 /* Info.plist */,
+				FA6322332ABC735B00D209E4 /* Assets.xcassets */,
 			);
 			path = HT_22_CatalogWithFeedback;
 			sourceTree = "<group>";
@@ -118,10 +118,10 @@
 		FA6322552ABE394E00D209E4 /* Folows */ = {
 			isa = PBXGroup;
 			children = (
+				FA6322562ABE395E00D209E4 /* Restaurants */,
+				FA6322592ABE3FBF00D209E4 /* Detail */,
 				FA63225F2ABE528700D209E4 /* Reviews */,
 				FA63225E2ABE526500D209E4 /* Feedback */,
-				FA6322592ABE3FBF00D209E4 /* Detail */,
-				FA6322562ABE395E00D209E4 /* Restaurants */,
 			);
 			path = Folows;
 			sourceTree = "<group>";

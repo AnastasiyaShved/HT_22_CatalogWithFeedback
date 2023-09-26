@@ -213,7 +213,7 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="s0w-Wc-xcZ">
                                         <rect key="frame" x="0.0" y="0.0" width="388" height="388"/>
                                         <subviews>
-                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="отзыа" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="6T4-Rc-owO">
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="6T4-Rc-owO">
                                                 <rect key="frame" x="0.0" y="0.0" width="388" height="388"/>
                                                 <color key="backgroundColor" red="0.890123688839215" green="0.94516665025520474" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
@@ -249,7 +249,7 @@
                                                 <state key="normal" title="Button"/>
                                                 <buttonConfiguration key="configuration" style="filled" title="Сохранить отзыв"/>
                                                 <connections>
-                                                    <action selector="saveBtn:" destination="sHx-VZ-P8J" eventType="touchUpInside" id="8dW-dQ-Vm4"/>
+                                                    <segue destination="cOz-x8-W3f" kind="unwind" identifier="unwindToDetailVC" unwindAction="unwindToDetailVC:" id="asb-LJ-5fK"/>
                                                 </connections>
                                             </button>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Z0Q-Uv-PM3">
@@ -279,6 +279,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0bD-hR-kOL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="cOz-x8-W3f" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1743.9252336448596" y="33.693304535637154"/>
         </scene>
