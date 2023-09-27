@@ -21,8 +21,6 @@ struct RestaurantsModel {
     
     var rating = ""
     
-    ///добавили метод по расчету среднего рейтинга)
-    ///модификатор mutating необходим для изменения (модификации) самого себя (т.е RestaurantsModel после создания)
     private mutating func updateRating() {
         var count: Double = 0.0
         self.rating = ""

@@ -41,17 +41,18 @@ class DetailVC: UIViewController {
         updateUI(with: size)
     }
     
-    //MARK: - actions -
+    //MARK: - actions
+   /// для перехода на этот экран по сеге
     @IBAction func unwindToDetailVC(_ segue: UIStoryboardSegue) {}
     
-     //MARK: - private funcs -
+     //MARK: - private funcs
     private func updateUI(with size: CGSize) {
         guard let rest = rest else { return }
         // забираем размер view в CGSize, для понимания положения экрана
         let isVertical = size.width < size.height
         detailStachView.axis = isVertical ? .vertical : .horizontal
         
-        //заполняем заголовок  tab bar =  restaurant's name
+        //заполняем заголовок  tab bar = restaurant's name
         title = rest.name
         imageV.image = rest.image
         nameLbl.text = rest.name
@@ -62,14 +63,24 @@ class DetailVC: UIViewController {
         showReviewBtn.isEnabled = rest.feedBacks.count != 0
     }
     
-    // MARK: - Navigation
+    // MARK: - navigation 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-   
+        switch segue.identifier {
+        case "goToFeedbackVC":
+            prepareEditScreen(segue)
+        default:
+            break
+        }
     }
+    
+    private func prepareEditScreen(_ segue: UIStoryboardSegue) {
+    // безопасно извлекаем опциональное значение
+        guard let destinationController = segue.destination as? FeedbackVC else {
+            return }
+        destinationController.feedbacks = rest?.feedBacks
+    }
+
+    
 }
 
- //MARK: - private prorety -
- //MARK: - life circle -
-//MARK: - actions -
- //MARK: - private funcs -
- //MARK: - novigation -
+ 
