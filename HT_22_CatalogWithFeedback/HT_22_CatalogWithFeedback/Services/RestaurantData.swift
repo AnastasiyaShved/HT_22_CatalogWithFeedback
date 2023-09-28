@@ -11,7 +11,7 @@ class RestaurantData {
     
     static let shared = RestaurantData()
     //массив ресторанов
-    private var restaurant: [RestaurantsModel]
+     var restaurant: [RestaurantsModel]
     
     private init() {
         restaurant = [

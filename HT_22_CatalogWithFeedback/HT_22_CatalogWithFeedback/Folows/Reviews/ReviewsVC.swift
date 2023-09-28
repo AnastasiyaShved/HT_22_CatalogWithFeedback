@@ -18,14 +18,18 @@ class ReviewsVC: UIViewController, UITextViewDelegate {
     @IBOutlet weak var segmentedControl: UISegmentedControl!
     
     @IBOutlet weak var save: UIButton!
+    @IBOutlet weak var reviewsStackView: UIStackView!
     
     //MARK: - life circle -
     
     override func viewDidLoad() {
         super.viewDidLoad()
         textView.delegate = self
+        updateUI(with: view.bounds.size)
     }
-    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator){
+        updateUI(with: size)
+    }
     func textViewDidChange(_ textView: UITextView) {
         guard let text = textView.text,
               text.count >= 20  else {
@@ -36,6 +40,8 @@ class ReviewsVC: UIViewController, UITextViewDelegate {
         errorLbl.isHidden = true
         save.isEnabled = true
     }
+    
+    
    
     //MARK: - actions -
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -56,6 +62,14 @@ class ReviewsVC: UIViewController, UITextViewDelegate {
         /// для нашего случая в DetailVC обновиться значение rest и у него сработает didSet
         a.rest?.feedBacks.append(feed)
     }
+    
+    private func updateUI(with size: CGSize) {
+        // забираем размер view в CGSize, для понимания положения экрана
+        let isVertical = size.width < size.height
+        reviewsStackView.axis = isVertical ? .vertical : .horizontal
+    }
+   
+    
 }
 
 

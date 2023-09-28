@@ -35,7 +35,6 @@ class DetailVC: UIViewController {
         super.viewDidLoad()
         updateUI(with: view.bounds.size)
     }
-    
     // для последующих поворотов
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator){
         updateUI(with: size)
@@ -72,7 +71,6 @@ class DetailVC: UIViewController {
             break
         }
     }
-    
     private func prepareEditScreen(_ segue: UIStoryboardSegue) {
     // безопасно извлекаем опциональное значение
         guard let destinationController = segue.destination as? FeedbackVC else {

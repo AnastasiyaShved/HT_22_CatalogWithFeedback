@@ -8,23 +8,26 @@
 import UIKit
 
 class FeedbackVC: UITableViewController {
-
+  
+    //MARK: - property -
     var feedbacks: [Feedback]? = []
 
+    //MARK: - private prorety -
+    
+    
 
-    
-  
-    
-   
     override func viewDidLoad() {
         super.viewDidLoad()
-
-       
+        title = "Отзывы"
     }
+    
+    
+    
+    
+    
+
 
     // MARK: - Table view data source
-
-    
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let feedBacksCount = feedbacks?.count else {
@@ -33,34 +36,31 @@ class FeedbackVC: UITableViewController {
         return feedBacksCount
     }
 
-    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         let onefeedbacks = feedbacks![indexPath.row]
-      
+        
+            
+        
+        
+        
+       
+        var marks = ""
 
-            switch onefeedbacks.mark {
-            case 1:
-                cell.textLabel?.text  = "⭐️"
-            case 2:
-                cell.textLabel?.text  = "⭐️⭐️"
-                
-            case 3:
-                cell.textLabel?.text  = "⭐️⭐️⭐️"
-            case 4:
-                cell.textLabel?.text  = "⭐️⭐️⭐️⭐️"
-            case 5:
-                cell.textLabel?.text  = "⭐️⭐️⭐️⭐️⭐️"
-            default:
-                break
-            }
-     
-    
-    
+        for _ in 0 ..< Int(onefeedbacks.mark)  {
+            marks += "⭐️"
+        }
+        
+        
+        
+        cell.textLabel?.text = "\(onefeedbacks.date.getDate())" + "\n" + marks
         cell.detailTextLabel?.text = onefeedbacks.text
     
         return cell
     }
+ 
+
+    
     
 
     /*

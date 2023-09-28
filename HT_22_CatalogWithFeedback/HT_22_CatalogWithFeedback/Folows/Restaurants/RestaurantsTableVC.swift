@@ -17,6 +17,8 @@ class RestaurantsTableVC: UITableViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tableView.reloadData()
+        // добавляем BarButton для последуюшего перемещения\удаления элементов
+        self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
     // MARK: - Table view data source
@@ -54,20 +56,25 @@ class RestaurantsTableVC: UITableViewController {
     }
     */
 
-    /*
-    // Override to support rearranging the table view.
+  
+    // позволяет перемещать ячейки
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
+        // берем элемент для перемещения по старому адресу
+//        let elementToMove = rest[fromIndexPath.row]
+//        // удаляем элемент по старому адресу
+//        rest.remove(at: fromIndexPath.row)
+//        // добавляем новый элемент
+//        rest.insert(elementToMove, at: to.row)
+
 
     }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
+    
+    // покаывает, можно  ли перемещать ячейки
     override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         // Return false if you do not want the item to be re-orderable.
         return true
     }
-    */
+    
 
 
     // MARK: - Navigation
