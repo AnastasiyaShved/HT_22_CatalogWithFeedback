@@ -34,6 +34,8 @@ class DetailVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         updateUI(with: view.bounds.size)
+        
+    
     }
     // для последующих поворотов
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator){

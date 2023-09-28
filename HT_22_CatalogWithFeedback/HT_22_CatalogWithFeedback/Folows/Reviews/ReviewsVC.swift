@@ -26,6 +26,7 @@ class ReviewsVC: UIViewController, UITextViewDelegate {
         super.viewDidLoad()
         textView.delegate = self
         updateUI(with: view.bounds.size)
+        
     }
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator){
         updateUI(with: size)
