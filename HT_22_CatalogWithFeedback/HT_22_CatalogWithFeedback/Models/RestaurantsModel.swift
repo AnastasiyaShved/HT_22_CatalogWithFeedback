@@ -20,7 +20,7 @@ struct RestaurantsModel {
     }
     
     var rating = ""
-    
+    // подсчет рейтинга с добавлением звезд
     private mutating func updateRating() {
         var count: Double = 0.0
         self.rating = ""

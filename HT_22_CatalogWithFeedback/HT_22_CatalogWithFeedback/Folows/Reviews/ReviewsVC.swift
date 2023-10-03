@@ -9,24 +9,24 @@ import UIKit
 
 class ReviewsVC: UIViewController, UITextViewDelegate {
 
-    //MARK: - property -
+    //MARK: - property
     
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var errorLbl: UILabel! {
         didSet { errorLbl.isHidden = false }
     }
     @IBOutlet weak var segmentedControl: UISegmentedControl!
-    
     @IBOutlet weak var save: UIButton!
     @IBOutlet weak var reviewsStackView: UIStackView!
     
-    //MARK: - life circle -
+    //MARK: - life circle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         textView.delegate = self
         updateUI(with: view.bounds.size)
-        
+        save.layer.cornerRadius = 6
+        self.navigationController?.navigationBar.tintColor = UIColor.darkGray
     }
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator){
         updateUI(with: size)
@@ -42,9 +42,7 @@ class ReviewsVC: UIViewController, UITextViewDelegate {
         save.isEnabled = true
     }
     
-    
-   
-    //MARK: - actions -
+    //MARK: - actions
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         switch segue.identifier {
             case "unwindToDetailVC":
@@ -53,8 +51,8 @@ class ReviewsVC: UIViewController, UITextViewDelegate {
             break
         }
     }
-    
-    //MARK: - private funcs -
+
+    //MARK: - private funcs
     private func prepareFirstScreen(_ segue: UIStoryboardSegue) {
         guard let a = segue.destination as? DetailVC else { return }
         ///создаем модель коментария (берем текст из textView и значение из segmentedControl (добавили +1 т.к значение текущего index в  segmentedControl начинается с 0 ))
@@ -69,8 +67,6 @@ class ReviewsVC: UIViewController, UITextViewDelegate {
         let isVertical = size.width < size.height
         reviewsStackView.axis = isVertical ? .vertical : .horizontal
     }
-   
-    
 }
 
 

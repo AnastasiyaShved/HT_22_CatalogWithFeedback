@@ -13,13 +13,13 @@ struct Feedback {
     let mark: Double
 }
 
-
 extension Date {
+    
     func getDate() -> String{
-            let formatter = DateFormatter()
-            formatter.dateFormat = "dd.mm.yyyy"
-            let date = formatter.string(from: self)
-            return date
+        let formatter = DateFormatter()
+        formatter.dateFormat = "dd.mm.yyyy"
+        let date = formatter.string(from: self)
+        return date
     }
 }
     

@@ -9,12 +9,15 @@ import UIKit
 
 class RestaurantsTableVC: UITableViewController {
    
+    //MARK: - property
     var rest: [RestaurantsModel] = []
     
+    //MARK: - life circle
     override func viewDidLoad() {
         rest = RestaurantData.shared.getAllRestaurant()
+        self.navigationController?.navigationBar.tintColor = UIColor.darkGray
     }
-    /// Обновление таблицы при каждом показе экрана, что при возврате на этот экран у нас обновился рейтинг ресторана в зависимости он оценки в отзывах
+    // Обновление таблицы при каждом показе экрана, чтобы при возврате на этот экран у нас обновился рейтинг ресторана в зависимости он оценки в отзывах
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.tableView.reloadData()
@@ -43,11 +46,9 @@ class RestaurantsTableVC: UITableViewController {
     // удаление ячеек
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
-            // Delete the row from the data source
             rest.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-        }    
+        } else if editingStyle == .insert { }
     }
     // позволяет перемещать ячейки
     override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {

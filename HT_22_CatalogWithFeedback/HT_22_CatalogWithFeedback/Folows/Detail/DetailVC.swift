@@ -10,7 +10,7 @@ import UIKit
 class DetailVC: UIViewController {
   
     // MARK: - property
-    ///тут храниться RestaurantsModel для этого экрана, которую получаем из списка ресторанов при тапе на ячйку
+    ///тут храниться RestaurantsModel для этого экрана, которую получаем из списка ресторанов при нажатии на ячейку
     var rest: RestaurantsModel? {
         /// в методе didSet (сработает при записи в  rest значения) обновит UI (showReviewBtnb и ratingLbl)
         /// а также добавит(обновит) RestaurantsModel в RestaurantData
@@ -29,13 +29,15 @@ class DetailVC: UIViewController {
     @IBOutlet weak var adressLbl: UILabel!
     @IBOutlet weak var ratingLbl: UILabel!
     @IBOutlet weak var showReviewBtn: UIButton!
+    @IBOutlet weak var leaveReview: UIButton!
     
     // MARK:  - life circle
     override func viewDidLoad() {
         super.viewDidLoad()
         updateUI(with: view.bounds.size)
-        
-    
+        showReviewBtn.layer.cornerRadius = 6
+        leaveReview.layer.cornerRadius = 6
+        self.navigationController?.navigationBar.tintColor = UIColor.darkGray
     }
     // для последующих поворотов
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator){
@@ -44,7 +46,7 @@ class DetailVC: UIViewController {
     
     //MARK: - actions
    /// для перехода на этот экран по сеге
-    @IBAction func unwindToDetailVC(_ segue: UIStoryboardSegue) {}
+    @IBAction func unwindToDetailVC(_ segue: UIStoryboardSegue) { }
     
      //MARK: - private funcs
     private func updateUI(with size: CGSize) {
@@ -74,13 +76,10 @@ class DetailVC: UIViewController {
         }
     }
     private func prepareEditScreen(_ segue: UIStoryboardSegue) {
-    // безопасно извлекаем опциональное значение
         guard let destinationController = segue.destination as? FeedbackVC else {
             return }
         destinationController.feedbacks = rest?.feedBacks
     }
-
-    
 }
 
  

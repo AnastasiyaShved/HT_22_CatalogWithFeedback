@@ -75,10 +75,10 @@
                                         <rect key="frame" x="0.0" y="0.0" width="428" height="804"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="d9f-Nn-z4Z">
-                                                <rect key="frame" x="20" y="20" width="388" height="704.66666666666663"/>
+                                                <rect key="frame" x="20" y="20" width="388" height="710.66666666666663"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="rtQ-CO-4k2">
-                                                        <rect key="frame" x="0.0" y="0.0" width="388" height="704.66666666666663"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="388" height="710.66666666666663"/>
                                                         <subviews>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="VtQ-KB-xEs">
                                                                 <rect key="frame" x="0.0" y="0.0" width="388" height="388"/>
@@ -110,29 +110,33 @@
                                                                 </subviews>
                                                             </stackView>
                                                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="45" translatesAutoresizingMaskIntoConstraints="NO" id="AUu-7f-a7o">
-                                                                <rect key="frame" x="0.0" y="502.66666666666663" width="388" height="202"/>
+                                                                <rect key="frame" x="0.0" y="502.66666666666663" width="388" height="208"/>
                                                                 <subviews>
-                                                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" adjustsImageWhenDisabled="NO" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xdJ-wz-voR">
-                                                                        <rect key="frame" x="0.0" y="0.0" width="388" height="31"/>
-                                                                        <state key="normal" title="Button"/>
-                                                                        <buttonConfiguration key="configuration" style="tinted" title="Просмотреть отзывы"/>
+                                                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xdJ-wz-voR">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="388" height="34"/>
+                                                                        <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                        <state key="normal" title="Просмотреть отзывы"/>
                                                                         <connections>
                                                                             <segue destination="XO0-1Z-dVA" kind="show" identifier="goToFeedbackVC" id="e1j-YB-lBS"/>
                                                                         </connections>
                                                                     </button>
-                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fgl-Jd-Nah">
-                                                                        <rect key="frame" x="0.0" y="76" width="388" height="31"/>
-                                                                        <color key="tintColor" systemColor="systemYellowColor"/>
-                                                                        <state key="normal" title="Button"/>
-                                                                        <buttonConfiguration key="configuration" style="filled" title="Оставить отзыв">
-                                                                            <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                        </buttonConfiguration>
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fgl-Jd-Nah">
+                                                                        <rect key="frame" x="0.0" y="79" width="388" height="34"/>
+                                                                        <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                                        <state key="normal" title="Оставить отзыв">
+                                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        </state>
                                                                         <connections>
                                                                             <segue destination="sHx-VZ-P8J" kind="show" id="j9I-d7-AVx"/>
                                                                         </connections>
                                                                     </button>
                                                                     <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JSj-P7-oJr">
-                                                                        <rect key="frame" x="0.0" y="152" width="388" height="50"/>
+                                                                        <rect key="frame" x="0.0" y="158" width="388" height="50"/>
                                                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                     </view>
                                                                 </subviews>
@@ -176,6 +180,7 @@
                         <outlet property="adressLbl" destination="NSW-uY-1kX" id="XEy-ZZ-rBc"/>
                         <outlet property="detailStachView" destination="d9f-Nn-z4Z" id="0mg-Hm-yT1"/>
                         <outlet property="imageV" destination="VtQ-KB-xEs" id="7Cp-rX-tWg"/>
+                        <outlet property="leaveReview" destination="fgl-Jd-Nah" id="fPl-QV-pu1"/>
                         <outlet property="nameLbl" destination="9r1-bh-hNk" id="ZBg-dE-f77"/>
                         <outlet property="ratingLbl" destination="Zrr-wv-0S7" id="Hq2-ZO-SiX"/>
                         <outlet property="showReviewBtn" destination="xdJ-wz-voR" id="cW3-Cb-il0"/>
@@ -227,17 +232,17 @@
                                             </textView>
                                         </subviews>
                                     </stackView>
-                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="40e-ez-ZWx">
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="40e-ez-ZWx">
                                         <rect key="frame" x="0.0" y="418" width="388" height="346"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Необходимо минимально 20 символов" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B2J-0I-4lc">
-                                                <rect key="frame" x="37.666666666666657" y="0.0" width="313" height="20.333333333333332"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="388" height="20.333333333333332"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.90991827449999996" green="0.1361154125" blue="0.0078614969150000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="4" translatesAutoresizingMaskIntoConstraints="NO" id="xda-aw-i2q">
-                                                <rect key="frame" x="4.6666666666666572" y="50.333333333333371" width="379" height="37.666666666666657"/>
+                                                <rect key="frame" x="0.0" y="50.333333333333371" width="388" height="38.666666666666657"/>
                                                 <segments>
                                                     <segment title="⭐️"/>
                                                     <segment title="⭐️⭐️"/>
@@ -247,9 +252,11 @@
                                                 </segments>
                                             </segmentedControl>
                                             <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hn2-ST-sI4">
-                                                <rect key="frame" x="124.33333333333333" y="117" width="139.33333333333337" height="31"/>
-                                                <state key="normal" title="Button"/>
-                                                <buttonConfiguration key="configuration" style="filled" title="Сохранить отзыв"/>
+                                                <rect key="frame" x="0.0" y="118" width="388" height="30"/>
+                                                <color key="backgroundColor" systemColor="systemYellowColor"/>
+                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="Сохранить отзыв"/>
                                                 <connections>
                                                     <segue destination="cOz-x8-W3f" kind="unwind" identifier="unwindToDetailVC" unwindAction="unwindToDetailVC:" id="asb-LJ-5fK"/>
                                                 </connections>
